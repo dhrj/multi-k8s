@@ -14,8 +14,8 @@ before_install:
   - gcloud config set project seismic-lexicon-195122
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials test-cluster-dheeraj
-  - echo"$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t dheerajreddy91/react-test -f ./client/Dockerfile.Dev ./client
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t stephengrider/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true dheerajreddy91/react-test npm run test
